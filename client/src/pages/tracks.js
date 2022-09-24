@@ -2,6 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 import React from "react";
 
 import { Layout } from "../components";
+import TrackCard from "../containers/track-card";
 
 /** TRACKS query to retrieve all tracks */
 const TRACKS = gql`
@@ -33,14 +34,10 @@ const Tracks = () => {
     return <div>{`Error! ${error.message}`}</div>;
   }
   return (
-    <Layout>
-      <div>
-        {data.tracksForHome.map((track) => (
-          <div key={track.id}>
-            {track.id} {track.title}
-          </div>
-        ))}
-      </div>
+    <Layout grid>
+      {data?.tracksForHome?.map((track) => (
+        <TrackCard key={track.id} track={track} />
+      ))}
     </Layout>
   );
 };
