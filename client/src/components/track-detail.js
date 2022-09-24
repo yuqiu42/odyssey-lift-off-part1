@@ -1,17 +1,17 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from "react";
+import styled from "@emotion/styled";
 import {
   colors,
   Button,
   IconRun,
   IconView,
   IconTime,
-  IconBook,
-} from '../styles';
-import { humanReadableTimeFromSeconds } from '../utils/helpers';
-import { Link } from '@reach/router';
-import ContentSection from './content-section';
-import MarkDown from './md-content';
+  IconBook
+} from "../styles";
+import { humanReadableTimeFromSeconds } from "../utils/helpers";
+import { Link } from "@reach/router";
+import ContentSection from "./content-section";
+import MarkDown from "./md-content";
 
 /**
  * Track Detail component renders the main content of a given track:
@@ -27,7 +27,7 @@ const TrackDetail = ({ track }) => {
     length,
     modulesCount,
     modules,
-    numberOfViews,
+    numberOfViews
   } = track;
 
   return (
@@ -59,7 +59,7 @@ const TrackDetail = ({ track }) => {
             <AuthorName>{author.name}</AuthorName>
           </DetailItem>
           <div>
-            <StyledLink to={`./module/${modules[0]['id']}`}>
+            <StyledLink to={`./module/${modules[0]["id"]}`}>
               <Button
                 icon={<IconRun width="20px" />}
                 color={colors.pink.base}
@@ -74,7 +74,7 @@ const TrackDetail = ({ track }) => {
           <DetailItem>
             <h4>Modules</h4>
             <ul>
-              {modules.map((module) => (
+              {modules.map(module => (
                 <li key={module.title}>
                   <div>{module.title}</div>
                   <ModuleLength>
@@ -95,105 +95,105 @@ export default TrackDetail;
 
 /** Track detail styled components */
 const CoverImage = styled.img({
-  objectFit: 'cover',
+  objectFit: "cover",
   maxHeight: 400,
   borderRadius: 4,
-  marginBottom: 30,
+  marginBottom: 30
 });
 
 const StyledLink = styled(Link)({
-  textDecoration: 'none',
-  color: 'white',
+  textDecoration: "none",
+  color: "white"
 });
 
 const TrackDetails = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
   padding: 20,
   borderRadius: 4,
   marginBottom: 30,
   border: `solid 1px ${colors.silver.dark}`,
   backgroundColor: colors.silver.lighter,
   h1: {
-    width: '100%',
-    textAlign: 'center',
-    marginBottom: 5,
+    width: "100%",
+    textAlign: "center",
+    marginBottom: 5
   },
   h4: {
-    fontSize: '1.2em',
+    fontSize: "1.2em",
     marginBottom: 5,
-    color: colors.text,
-  },
+    color: colors.text
+  }
 });
 
 const DetailRow = styled.div({
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  width: '100%',
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "center",
+  width: "100%",
   paddingBottom: 20,
   marginBottom: 20,
-  borderBottom: `solid 1px ${colors.silver.dark}`,
+  borderBottom: `solid 1px ${colors.silver.dark}`
 });
 
 const DetailItem = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'space-between',
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "space-between",
   color: colors.textSecondary,
-  alignSelf: 'center',
+  alignSelf: "center"
 });
 
 const AuthorImage = styled.img({
   height: 30,
   width: 30,
   marginBottom: 8,
-  borderRadius: '50%',
-  objectFit: 'cover',
+  borderRadius: "50%",
+  objectFit: "cover"
 });
 
 const AuthorName = styled.div({
-  lineHeight: '1em',
-  fontSize: '1em',
+  lineHeight: "1em",
+  fontSize: "1em"
 });
 
 const IconAndLabel = styled.div({
-  display: 'flex',
-  flex: 'row',
-  alignItems: 'center',
+  display: "flex",
+  flex: "row",
+  alignItems: "center",
   maxHeight: 20,
-  width: '100%',
+  width: "100%",
   div: {
-    marginLeft: 8,
+    marginLeft: 8
   },
   svg: {
-    maxHeight: 16,
+    maxHeight: 16
   },
-  '#viewCount': {
-    color: colors.pink.base,
-  },
+  "#viewCount": {
+    color: colors.pink.base
+  }
 });
 
 const ModuleListContainer = styled.div({
-  width: '100%',
+  width: "100%",
   ul: {
-    listStyle: 'none',
+    listStyle: "none",
     padding: 0,
     margin: 0,
     marginTop: 5,
     li: {
-      fontSize: '1em',
-      display: 'flex',
-      justifyContent: 'space-between',
-      paddingBottom: 2,
-    },
-  },
+      fontSize: "1em",
+      display: "flex",
+      justifyContent: "space-between",
+      paddingBottom: 2
+    }
+  }
 });
 
 const ModuleLength = styled.div({
   marginLeft: 30,
-  color: colors.grey.light,
+  color: colors.grey.light
 });
