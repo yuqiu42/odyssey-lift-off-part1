@@ -7,6 +7,13 @@ const resolvers = {
       return dataSources.trackAPI.getTracksForHome();
     },
   },
+  Track: {
+    author: (parent, _, context) => {
+      const { authorId } = parent;
+      const { dataSources } = context;
+      return dataSources.trackAPI.getAuthor(authorId);
+    },
+  },
 };
 
 module.exports = resolvers;
