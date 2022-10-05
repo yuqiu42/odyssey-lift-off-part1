@@ -6,6 +6,12 @@ const resolvers = {
       const { dataSources } = context;
       return dataSources.trackAPI.getTracksForHome();
     },
+    // get a single track by ID, for the track page
+    track: (_, args, context) => {
+      const { id: trackId } = args;
+      const { dataSources } = context;
+      return dataSources.trackAPI.getTrack(trackId);
+    },
   },
   Track: {
     author: (parent, _, context) => {
