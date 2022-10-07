@@ -7,7 +7,7 @@ import GlobalStyles from "./styles";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000",
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 ReactDOM.render(
