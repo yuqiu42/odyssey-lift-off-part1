@@ -1,5 +1,7 @@
-import React from "react";
 import styled from "@emotion/styled";
+import { Link } from "@reach/router";
+import React from "react";
+
 import { colors, mq } from "../styles";
 import { humanReadableTimeFromSeconds } from "../utils/helpers";
 
@@ -8,10 +10,10 @@ import { humanReadableTimeFromSeconds } from "../utils/helpers";
  * for each track populating the tracks grid homepage.
  */
 const TrackCard = ({ track }) => {
-  const { title, thumbnail, author, length, modulesCount } = track;
+  const { id, title, thumbnail, author, length, modulesCount } = track;
 
   return (
-    <CardContainer>
+    <CardContainer to={`/track/${id}`}>
       <CardContent>
         <CardImageContainer>
           <CardImage src={thumbnail} alt={title} />
@@ -36,7 +38,7 @@ const TrackCard = ({ track }) => {
 export default TrackCard;
 
 /** Track Card styled components */
-const CardContainer = styled.div({
+const CardContainer = styled(Link)({
   borderRadius: 6,
   color: colors.text,
   backgroundSize: "cover",
@@ -47,29 +49,29 @@ const CardContainer = styled.div({
   flexDirection: "column",
   justifyContent: "space-between",
   [mq[0]]: {
-    width: "90%"
+    width: "90%",
   },
   [mq[1]]: {
-    width: "47%"
+    width: "47%",
   },
   [mq[2]]: {
-    width: "31%"
+    width: "31%",
   },
   height: 380,
   margin: 10,
   overflow: "hidden",
   position: "relative",
   ":hover": {
-    backgroundColor: colors.pink.lightest
+    backgroundColor: colors.pink.lightest,
   },
-  cursor: "pointer"
+  cursor: "pointer",
 });
 
 const CardContent = styled.div({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-around",
-  height: "100%"
+  height: "100%",
 });
 
 const CardTitle = styled.h3({
@@ -78,7 +80,7 @@ const CardTitle = styled.h3({
   lineHeight: "1em",
   fontWeight: 700,
   color: colors.text,
-  flex: 1
+  flex: 1,
 });
 
 const CardImageContainer = styled.div({
@@ -91,15 +93,15 @@ const CardImageContainer = styled.div({
     bottom: 0,
     left: 0,
     right: 0,
-    background: "rgba(250,0,150,0.20)"
-  }
+    background: "rgba(250,0,150,0.20)",
+  },
 });
 
 const CardImage = styled.img({
   objectFit: "cover",
   width: "100%",
   height: "100%",
-  filter: "grayscale(60%)"
+  filter: "grayscale(60%)",
 });
 
 const CardBody = styled.div({
@@ -108,12 +110,12 @@ const CardBody = styled.div({
   display: "flex",
   color: colors.textSecondary,
   flexDirection: "column",
-  justifyContent: "space-around"
+  justifyContent: "space-around",
 });
 
 const CardFooter = styled.div({
   display: "flex",
-  flexDirection: "Row"
+  flexDirection: "Row",
 });
 
 const AuthorImage = styled.img({
@@ -121,20 +123,20 @@ const AuthorImage = styled.img({
   width: 30,
   marginRight: 8,
   borderRadius: "50%",
-  objectFit: "cover"
+  objectFit: "cover",
 });
 
 const AuthorAndTrack = styled.div({
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space-between"
+  justifyContent: "space-between",
 });
 
 const AuthorName = styled.div({
   lineHeight: "1em",
-  fontSize: "1.1em"
+  fontSize: "1.1em",
 });
 
 const TrackLength = styled.div({
-  fontSize: "0.8em"
+  fontSize: "0.8em",
 });
