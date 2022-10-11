@@ -7,7 +7,7 @@ const typeDefs = gql`
     track(id: ID!): Track
   }
 
-  type mutation {
+  type Mutation {
     incrementTrackViews(id: ID!): IncrementTrackViewsResponse!
   }
 
